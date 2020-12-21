@@ -1,0 +1,352 @@
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+.wrapper {
+font-family: 'Lato', sans-serif;
+/* overflow-x: hidden;*/
+}
+
+
+
+
+
+
+
+a {
+color: blue;
+width: 100%;
+display: block;
+text-align: center;
+text-decoration: none;
+/*border: solid black;*/
+margin: 1px;
+line-height: 32px;
+
+}
+
+p {
+text-align: center;
+}
+
+
+
+h1 {
+margin: 30px 50px 50px 50px;
+text-align: center;
+font-size: 60px;
+
+}
+
+section {
+position: fixed;
+width: 100%;
+overflow: auto;
+height: 100%;
+margin-left: 0;
+/* add the animation*/
+transition: margin .3s;
+left: 0;
+background: black;
+}
+
+
+ul {
+list-style: none;
+}
+
+/* The menu */
+.menu {
+width: 200px;
+position: fixed;
+top: 0px;
+height: 100%;
+margin-left: -200px;
+background: black;
+padding: 15px;
+/* add the animation*/
+transition: margin .3s;
+left: 0;
+}
+
+
+
+/* Hide the checkbox */
+input[type=checkbox] {
+position: fixed;
+right: -9999px;
+opacity: 0;
+}
+
+/* Toggle */
+.nav-toggle {
+display: block;
+position: fixed;
+top: 10px;
+left: 0px;
+height: 40px;
+width: 40px;
+cursor: pointer;
+z-index: 99;
+margin-left: 10px;
+/* add the animation*/
+transition: margin .3s;
+
+}
+
+.nav-toggle span {
+position: relative;
+display: block;
+height: 2px;
+width: 40px;
+background: white;
+/* add the animation*/
+transition: all .3s;
+}
+
+.nav-toggle span:nth-child(2) {
+top: 12px;
+}
+
+.nav-toggle span:nth-child(3) {
+top: 24px;
+}
+
+/* Toggle moving */
+input[type=checkbox]:checked ~ .nav-toggle {
+margin-left: 200px;
+}
+
+input[type=checkbox]:checked ~ .nav-toggle span:nth-child(1) {
+display: none;
+}
+
+input[type=checkbox]:checked ~ .nav-toggle span:nth-child(2) {
+/*display: none;*/
+left: 6px;
+height: 4px;
+}
+
+input[type=checkbox]:checked ~ .nav-toggle span:nth-child(3) {
+display: none;
+
+}
+
+input[type=checkbox]:checked ~ .container .menu {
+margin-left: 0px;
+}
+
+input[type=checkbox]:checked ~ .container {
+margin-left: 200px;
+}
+
+nav.menu ul ul {
+max-height: 0;
+overflow: hidden;
+transition: max-height .3s;
+}
+
+/*list background*/
+nav.menu ul li {
+background-color: #1b1212;
+border-radius: 5px;
+}
+
+nav.menu .social-list {
+background-color: transparent;
+
+}
+
+nav.menu ul a {
+font-size: 16px;
+}
+
+
+nav.menu ul li:hover > ul {
+max-height: 600px;
+height: auto;
+}
+
+li a::after {
+content: '\25E3';
+transition: .2s;
+display: inline-block;
+margin-left: 8px
+}
+
+li a:hover::after {
+content: '\25E3';
+transform: rotate(180deg);
+}
+
+li a:only-child::after {
+content: '';
+}
+
+
+.menu a:hover {
+transition-duration: 0.3s;
+transform: scale(0.8);
+}
+
+
+
+.mylogo img {
+width: 150px;
+height: 90px;
+
+}
+
+.mylogo-sub-pages img {
+width: 100px;
+height: 50px;
+
+}
+
+.header-sub-pages {
+padding-top: 20px;
+width: 100%;
+height: 80px;
+background: black;
+}
+
+footer {
+
+position: fixed;
+bottom: 10px;
+font-size: 10px;
+width: 100%;
+background: black;
+color: white;
+padding-bottom: 5px;
+
+line-height: 20px;
+
+}
+
+h1 {
+font-size: 25px;
+}
+
+/*---------FOR DESKTOP----------*/
+@media screen and (min-width:768px) {
+
+.nav-toggle {
+display: none;
+}
+
+nav.menu .social-list {
+position: relative;
+top: 8px;
+width: 60px;
+padding: 0;
+margin: 0;
+
+}
+
+nav.menu .social-list a {
+padding: 0;
+}
+
+header {
+margin-top: 50px;
+}
+
+header .mylogo {
+text-align: center;
+
+}
+
+.container {
+top: 0;
+line-height: 30px;
+/*word-wrap: break-word !important;*/
+background-color: #28212b;
+/*overflow: auto;*/
+}
+
+nav.menu {
+
+z-index: 99;
+position: fixed;
+width: 100%;
+text-align: center;
+margin-left: 0;
+height: auto;
+padding: 0;
+background-color: #272525;
+
+
+/*nav menu was taking over whole page...
+by setting auto.. then nav menu will remain in size that it needs, but not more then that. */
+}
+
+
+nav.menu ul {
+padding: 0;
+margin: 0;
+position: relative;
+list-style: none;
+
+}
+
+nav.menu ul li {
+text-align: center;
+display: inline-block;
+width: 240px;
+position: relative;
+}
+
+nav.menu .small-width-list {
+width: 110px;
+}
+
+nav.menu .small-width-list:last-child {
+width: 120px;
+padding-right: 10px;
+}
+
+
+nav.menu a {
+display: block;
+color: pink;
+line-height: 40px;
+text-decoration: none;
+}
+
+/* keeps the dropdown invisible and assign style to list*/
+nav.menu ul ul {
+display: none;
+position: absolute;
+overflow: visible;
+top: 40px;
+margin-left: -120px;
+}
+
+/* show dropdown 1st 2nd 3rd level on hover */
+nav.menu ul li:hover > ul {
+display: inherit;
+
+}
+
+/* 1st level */
+nav.menu ul ul li {
+display: list-item;
+
+}
+
+/* 2nd and 3rd level*/
+nav.menu ul ul ul li {
+position: relative;
+top: 0px;
+left: 120px;
+}
+
+input[type=checkbox]:checked ~ .container {
+margin-left: 0;
+}
+
+
+}
